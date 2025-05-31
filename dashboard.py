@@ -1,6 +1,6 @@
 import streamlit as st, plotly.express as px, pandas as pd
 
-# Set Streamlit page config for better aesthetics
+# Set Streamlit page config for better aesthetics and mobile responsiveness
 dark_bg = "#23272f"
 light_text = "#e4e6eb"
 accent_blue = "#64b5f6"
@@ -14,7 +14,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS for dark mode and improved sidebar readability
+# Custom CSS for dark mode, improved sidebar readability, and mobile responsiveness
 st.markdown(
     f"""
     <style>
@@ -22,6 +22,14 @@ st.markdown(
     .stPlotlyChart {{background-color: #282c34 !important; border-radius: 12px; box-shadow: 0 2px 8px #111; padding: 1.5rem;}}
     section[data-testid="stSidebar"] {{background-color: {dark_bg} !important; color: {light_text} !important;}}
     label, .stSelectbox label, .stSidebar label, .stSidebar .css-1cpxqw2 {{color: {light_text} !important;}}
+    /* Responsive font and padding for mobile */
+    @media (max-width: 600px) {{
+        .stPlotlyChart {{padding: 0.5rem !important;}}
+        .block-container {{padding: 0.5rem 0.2rem 0.5rem 0.2rem !important;}}
+        h1, h2, h3, h4, h5, h6 {{font-size: 1.1em !important;}}
+        .stMarkdown p, .stMarkdown span, .stMarkdown div, .stTextInput input, .stSelectbox div {{font-size: 0.95em !important;}}
+        .stSidebar {{width: 100vw !important; min-width: 0 !important;}}
+    }}
     </style>
     """,
     unsafe_allow_html=True
